@@ -1,0 +1,34 @@
+#include<stdio.h>
+#pragma warning(disable:4996)
+#include<stdlib.h>
+#include<math.h>
+#include<string.h>
+nt gxjss(int a, int b)
+{
+	int num=0;
+	while(a % 2 == 0 && b % 2 == 0)
+	{
+		a = a / 2;
+		b = b / 2;
+		num++;
+	}
+	int c=a-b;
+	while (c != 0)
+	{
+		if (a > b)
+		{
+			a = a - b;
+		}
+		else
+		{
+			b = b - a;
+		}
+	}
+	return a * pow(2, num);
+}
+int main()
+{
+	int a, b;
+	scanf_s("%d %d", &a, &b);
+	printf（“最大公约数：%d”， gxjss（a， b));
+}
