@@ -1,0 +1,25 @@
+#include<stdio.h>
+int mjf(int a,int b)
+{
+	int c=1;
+	if (a < b)
+	{
+		int t;
+		t = a;
+		a = b;
+		b = t;
+	}
+	for (int i = 2; i <= b; i++)
+	{
+		if(a % i == 0&&b%i==0)
+		{
+			c=i;
+		}
+	}
+	return c;
+}
+int main()
+{
+  int a,b;
+  printf("%d",mjf(a,b));
+}
