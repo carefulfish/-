@@ -1,0 +1,26 @@
+#imnclude<stdio.h>
+int dcf(int a,int b)
+{
+	int c = 1;
+	if (a < b)
+	{
+		int t;
+		t = a;
+		a = b;
+		b = t;
+	}
+	for (int i = 2; i <= b; i++)
+	{
+		if (a % i == 0 && b % i == 0)
+		{
+			a = a / i;
+			b = b / i;
+			c *= i;
+		}
+	}
+}
+int main()
+{
+  int a,b;
+  scanf("%d%d",&a,&b);
+  printf("%d",dcf(a,b)); }
