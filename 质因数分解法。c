@@ -1,0 +1,34 @@
+#include<stdio.h>
+int zysfjf(int a,int b)
+{
+	int num=1;
+	if (a < b)
+	{
+		int t;
+		t = a;
+		a = b;
+		b = t;
+	}
+	for (int i = 2; i <= b; i++)
+	{
+		if(a % i == 0&&b%i==0)
+		{
+			a = a / i;
+			b = b / i;
+			num *= i;
+		}
+		else 
+		{
+			if (a % i == 0)
+				a = a / i;
+			if (b % i == 0)
+				b = b / i;
+		}
+	}
+	return num;
+}
+int main()
+{
+  int a,b;
+  scanf("%d%d",&a,&b);
+  printf("%d",zysfjf(a,b));}
