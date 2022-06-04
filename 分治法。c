@@ -1,0 +1,37 @@
+#include<stdio.h>
+int fzf(int a, int b)
+{
+	if (a % b == 0)
+	{
+		return b;
+	}
+	if (b % a == 0)
+	{
+		return a;
+	}
+	if (a % 2 == 0 && b % 2 == 0) 
+	{
+		return 2 * fzf(a / 2, b / 2);
+	}
+	else
+	{
+		if (a % 2 == 1 && b % 2 == 0)
+		{
+			return fzf(a, b / 2);
+		}
+		else if (a % 2 == 0 && b % 2 == 1)
+		{
+			return fzf(a / 2, b);
+		}
+		else 
+		{
+			return fzf((a - b) / 2, b);
+		}
+	}
+}
+int main()
+{
+  int a,b;
+  scanf("%d%d",&a,&b);
+  printf("最大公约数%d",fzf(a,b));
+ }
