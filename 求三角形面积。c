@@ -1,0 +1,7 @@
+#include<stdio.h>
+main()
+{float d,h,s;
+ scanf("%f%f",&d,&h);
+ s=1.0/2*d*h;
+ printf("%f",s);
+}
