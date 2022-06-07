@@ -1,0 +1,8 @@
+#include<stdio.h>
+void main( )
+{int s,a=3,b=4;
+ s=a;
+ if(a<b)  s=b;
+ s*=s;
+ printf(“%d\n”,s);
+}   
