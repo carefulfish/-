@@ -1,0 +1,12 @@
+#include<stdio.h>
+//include<math.h>
+main()
+{int i,a,b,c;
+for(i=100;i<=999;i++)
+{ a=i/100;
+ b=i/10%10;
+ c=i%10;
+ if(a*a*a+b*b*b+c*c*c==i) printf("%d\n",i);
+//if(pow(a,3)+pow(b,3)+pow(c,3)==i) printf("%d\n",i);
+}
+}
