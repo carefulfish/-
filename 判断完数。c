@@ -1,0 +1,10 @@
+#include<stdio.h>
+main()
+{   int i,j,s;
+    scanf("%d",&i);
+    s=0;
+	for(j=1;j<=i-1;j++)
+	 if(i%j==0) s=s+j;
+    if(s==i) printf("Yes");
+	else printf("No");
+}
