@@ -1,0 +1,14 @@
+#include “stdlib.h”
+main( )
+{ int *a, *b, *c,num,x,y,z;
+  a=&x; b=&y; c=&z;
+  printf(“输入3个整数:”);
+  scanf(“%d%d%d”,a,b,c);
+printf(“%d,%d,%d\n”,*a,*b,*c);
+  num=*a;
+  if(*a>*b) 
+num=*b     ;
+  if(num>*c) 
+ num=*c    ;
+ printf(“输出最小整数：%d\n”,num);
+   }
