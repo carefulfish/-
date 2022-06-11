@@ -1,0 +1,20 @@
+#include <stdio.h>
+  int max,min;
+  find_max_min(int *p,int n)
+  {int *q ;
+    max=min=*p ;
+    for(q=p+1  ; q<p+n  ; q++)
+{ if(  *q>max   ) 
+max=*q;
+     else if（  *q<min   ）
+min=*q ; 
+}
+}
+  main( )
+ {int i,num[10];
+  printf(“input 10 numbers:\n”) ;
+  for(i=0; i<10 ; i++)
+    scanf(“%d”,&num[i] ) ;
+   find_max_min(num,10) ;
+   printf(“max=%d;min=%d\n”,max,min); 
+}
