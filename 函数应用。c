@@ -1,0 +1,8 @@
+#include<stdio.h>
+fun(int a,int b,int c)
+{   c=a*b;   }
+main( )
+{ int c;
+  fun(2,3,c);
+  printf(“%d\n”,c);
+}
