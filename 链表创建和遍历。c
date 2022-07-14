@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<malloc.h>
+typedef struct node
+{
+	int val;
+	struct node* pNext;
+}NODE,*PNODE;
+PNODE create_list();
+void travel_list(PNODE p);
+int main()
+{
+	PNODE pHead;
+	pHead=create_list();
+	printf("\n");
+	travel_list(pHead->pNext);
+}
+PNODE create_list()
+{
+	int len;
+	int val;
+	PNODE pHead = (PNODE)malloc(sizeof(NODE));
+	if (NULL == pHead)
+	{
+		printf("分配失败，程序终止！");
+		exit(-1);
+	}
+	PNODE pTail = pHead;
+	pTail->pNext = NULL;
+	printf("请输入链表长度：");
+	scanf_s("%d", &len);
+	
+	for (int i = 0; i < len; i++)
+	{
+		printf("请输入第%d个结点的数据: ", i + 1);
+		scanf_s("%d", &val);
+		PNODE pNew = (PNODE)malloc(sizeof(NODE));
+		if (NULL == pNew)
+		{
+			printf("分配失败，程序终止！");
+			exit(-1);
+		}
+		pNew->val = val;
+		pTail->pNext = pNew;
+		pNew->pNext = NULL;
+		pTail = pNew;
+	}
+	return pHead;
+}
+void travel_list(PNODE p)
+{
+	int i = 1;
+	while (NULL != p)
+	{
+		printf("第%d个结点的数据为：%d\n",i,p->val );
+		p = p->pNext;
+		i++;
+	}
+}
