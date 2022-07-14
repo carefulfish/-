@@ -1,0 +1,125 @@
+#include<stdio.h>
+#pragma warning(disable:4996)
+#include<stdlib.h>
+#include<math.h>
+#include<string.h>
+#include<malloc.h>
+typedef struct Arr
+{
+	int* pBase;//存放数组元素
+	int length;//长度
+	int cnt;//有效长度
+
+
+}* SZ,dsz;
+void init_arr(struct Arr *parr,int n);
+bool appent_arr(struct Arr* parr,int val);
+void show_arr(struct Arr* parr);
+bool is_empty(struct Arr* parr);
+bool is_full(struct Arr* parr);
+bool insert_arr(struct Arr* parr, int pos, int val);
+bool inversion_arr(struct Arr* parr);
+bool delete_arr(struct Arr* parr, int pos, int *val);
+int main()
+{
+	struct Arr arr;
+	init_arr(&arr,6);
+	show_arr(&arr);
+}
+bool delete_arr(struct Arr* parr, int pos, int* val)
+{
+	if (pos > parr->cnt || pos < 1||is_empty(parr))
+		return false;
+	else
+	{
+		*val = parr->pBase[pos - 1];
+		for (int i = pos-1; i<parr->cnt-1; i++)
+		{
+			parr->pBase[i] = parr->pBase[i+1];
+		}
+		parr->cnt--;
+		return true;
+	}
+}
+bool inversion_arr(struct Arr* parr)
+{
+	int i=0, j=parr->cnt-1,t;
+	while (i < j)
+	{
+		t = parr->pBase[i];
+		parr->pBase[i] = parr->pBase[j];
+		parr->pBase[j] = t;
+		i++;
+		j--;
+	}
+	return true;
+}
+bool insert_arr(struct Arr *parr,int pos,int val)
+{
+	if (pos > parr->cnt + 1 || pos < 1||is_full(parr))
+		return false;
+	else
+	{
+		for (int i = parr->cnt - 1; i >= pos - 1; i--)
+		{
+			parr->pBase[i + 1] = parr->pBase[i];
+		}
+		parr->pBase[pos - 1] = val;
+		parr->cnt++;
+		return true;
+	}
+}
+void init_arr(struct Arr* parr,int n)
+{
+	parr->pBase = (int*)malloc(sizeof(int) * n);
+	if (NULL == parr->pBase)
+	{
+		printf("动态分配内存错误！");
+		exit(-1);
+	}
+	else
+	{
+		parr->cnt = 0;
+		parr->length = n;
+	}
+	return;
+}
+bool is_empty(struct Arr* parr)
+{
+	if (parr->cnt == 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+void show_arr(struct Arr* parr)
+{
+	if (is_empty(parr))
+		printf("数组为空！\n");
+	else
+	{
+		for (int i = 0; i < parr->cnt; i++)
+			printf("%d	", parr->pBase[i]);
+	}
+
+}
+bool is_full(struct Arr* parr)
+{
+	if (parr->cnt == parr->length)
+		return true;
+	else return false;
+}
+bool appent_arr(struct Arr* parr, int val)
+{
+	if (is_full(parr))
+		return false;
+	else
+	{
+		parr->pBase[parr->cnt] = val;
+		parr->cnt++;
+		return true;
+	}
+}
