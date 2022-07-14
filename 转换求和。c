@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+	double sum = 0;
+	int a = 2,b=1;
+	for (int n=1;n<=20;n++)
+	{
+		sum += (double)a/b;
+		int t;
+		t = a;
+		a = a + b;
+		b = t;
+	}
+	printf("%f",sum );
+}
